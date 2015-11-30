@@ -73,7 +73,7 @@ class Location < ActiveRecord::Base
       events.sort_by {|event| event.starts_at}
       events[0].starts_at.to_formatted_s(:long_ordinal)
     else
-      events[0].starts_at = 'no event'
+      events = "No events found."
     end 
   end 
 end

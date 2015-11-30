@@ -67,4 +67,13 @@ class Location < ActiveRecord::Base
       longitude: longitude,
     }
   end
+
+  def most_recent_event
+    if events.present? 
+      events.sort_by {|event| event.starts_at}
+      events[0].starts_at.to_formatted_s(:long_ordinal)
+    else
+      events[0].starts_at = 'no event'
+    end 
+  end 
 end

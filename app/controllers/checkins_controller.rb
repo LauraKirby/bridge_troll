@@ -15,8 +15,10 @@ class CheckinsController < ApplicationController
   end
 
   def create
-    @rsvp_session.checked_in = true
-    @rsvp_session.save!
+    if @event.upcoming?
+      @rsvp_session.checked_in = true
+      @rsvp_session.save!
+    end
 
     render json: @event.checkin_counts
   end

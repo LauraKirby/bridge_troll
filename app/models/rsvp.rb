@@ -52,6 +52,7 @@ class Rsvp < ActiveRecord::Base
 
     normal_event.with_options(if: :requires_session_rsvp?) do |attendee_rsvp|
       attendee_rsvp.validates :rsvp_sessions, length: { minimum: 1, message: 'must be selected' }
+      attendee_rsvp.validates_presence_of :rsvp_sessions
     end
   end
 

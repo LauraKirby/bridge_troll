@@ -78,7 +78,7 @@ describe Regions::LeadersController do
     end
   end
 
-  describe "potential leaders" do
+  describe "Potential chapter leaders:" do
     before do
       sign_in create(:user, admin: true)
     end
